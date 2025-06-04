@@ -31,6 +31,9 @@ jobs:
     needs: second_job
     runs-on: ubuntu-latest
 
+    outputs:
+      salida: ${{ steps.name-1.outputs.nombre }}
+
     steps:
       - name: Obtener nombre
         id: name-1
@@ -39,3 +42,18 @@ jobs:
       - name: Leer nombre
         id: name-2
         run: echo "el nombre es ${{ steps.name-1.outputs.nombre }}"
+
+  generar_artefacto:
+    needs: job_outputs
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Generar archivo
+        run: |
+          echo "Hola mundo en artifacto" >> test.log
+
+      - name: subur artefacto
+        uses: actions/upload-artifact@v4
+        with:
+          name: archivo-test
+          path: test.log
