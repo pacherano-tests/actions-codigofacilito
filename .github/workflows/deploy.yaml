@@ -18,5 +18,11 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: segundo step
-        run: echo "Segundo step"
+      - name: ruta inicial
+        run: ls -al
+
+      - name: checkout
+        uses: actions/checkout@v4
+
+      - name: ruta final
+        run: ls -al
