@@ -19,7 +19,7 @@ jobs:
 
     steps:
       - name: ruta inicial
-        run: ls -al
+        run: pwd
 
       - name: checkout
         uses: actions/checkout@v4
