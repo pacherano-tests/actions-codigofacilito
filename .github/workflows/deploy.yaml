@@ -26,3 +26,16 @@ jobs:
 
       - name: ruta final
         run: ls -al
+
+  job_outputs:
+    needs: second_job
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Obtener nombre
+        id: name-1
+        run: echo "nombre=pacho" >> $GITHUB_OUTPUT
+
+      - name: Leer nombre
+        id: name-2
+        run: echo "el nombre es ${{ steps.name-1.outputs.nombre }}"
