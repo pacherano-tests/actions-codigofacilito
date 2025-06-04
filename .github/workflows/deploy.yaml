@@ -57,3 +57,13 @@ jobs:
         with:
           name: archivo-test
           path: test.log
+
+  descargar_artefacto:
+    needs: generar_artefacto
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Descargar artefacto
+        uses: actions/download-artifact@v4
+        with:
+          name: archivo-test
