@@ -34,6 +34,7 @@ jobs:
         run: |
           echo Hello, world from second job!
           echo ${{ needs.first-job.outputs.jb1 }}
+          echo ${{ jobs.first-job.outputs.jb1 }}
 
   third-job:
     runs-on: ubuntu-latest
