@@ -23,6 +23,7 @@ jobs:
 
   second-job:
     # The type of runner that the job will run on
+    needs: first-job
     runs-on: ubuntu-latest
 
     # Steps represent a sequence of tasks that will be executed as part of the job
